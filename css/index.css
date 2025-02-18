@@ -161,7 +161,7 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 #aboutme .title {border-radius: 20px 20px 0 0; font-size: 20px; font-weight: bold; margin-bottom: 20px;}
 #aboutme .box dl, .box p {font-size: 14px;}
 #aboutme a.scale {box-sizing: border-box; display: block; transition: .5s;}
-#aboutme a.scale:hover {transform: scale(1.015);}
+#aboutme a.scale:hover {transform: scale(1.02);}
 #aboutme dt {font-weight: bold; margin-bottom: 10px;}
 #aboutme #profile {width: 400px; height: 500px; overflow: hidden;}
 #aboutme #profile a {width: 100%; height: 100%;}
@@ -172,8 +172,8 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 #aboutme #profile .inner .text dl {padding: 20px;}
 #aboutme .row {display: flex; flex-direction: column; gap: 30px;}
 #aboutme #skills, #contact {width: 570px; height: 235px;}
-#aboutme #skills a {width: 100%; height: 100%;}
 #aboutme #skills .inner dl {display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-evenly;}
+#aboutme #skills a {width: 100%; height: 100%;}
 #aboutme #contact .inner_box {width: 100%; height: 195px; display: flex; gap: 30px;}
 #aboutme #contact .inner_box a {width: calc(100% / 3); height: 100%; position: relative;}
 #aboutme #contact .inner_box i {font-size: 40px; display: block;}
