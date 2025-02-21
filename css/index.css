@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* reset */
-* {margin: 0; padding: 0;}
-li {list-style: none;}
 a {text-decoration: none; color: inherit;}
 body {color: #333; background: no-repeat center/cover fixed; background: url(../images/3798.jpg) no-repeat 0 center/cover fixed; overflow-x: hidden; overflow-y: overlay;}
 button {border: none;}
 .inner {max-width: 1200px; margin: 0 auto;}
+/* @media (max-width:767px) {
+  .inner {max-width: 600px; margin: 0 auto;}
+} */
 
 /* scroll */
 ::-webkit-scrollbar {
@@ -32,49 +33,39 @@ button {border: none;}
 /* drag */
 ::selection {color: #333;  background-color: white;}
 
+/* 폰트 크기 */
+
+
 /* header */
-header {width: 100%; height: 100px; position: fixed; z-index: 90; backdrop-filter: blur(2px);}
+header {width: 100%; height: 10vh; position: fixed; z-index: 90; backdrop-filter: blur(2px);}
 header .inner {height: 100%;}
 header .gnb {height: 100%;}
 header .gnb ul {display: flex; margin: 0 auto; width: 800px; height: 100%; justify-content: space-evenly; align-items: center;}
-header .gnb ul li a {display: block; text-decoration: none; color: rgba(0,0,0,.8); text-align: center; transition: .5s;}
+header .gnb ul li a {display: block; font-size: 20px; font-weight: bold; color: #333; text-align: center; transition: .5s;}
 header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
+
+/* 모바일 */
+@media (max-width:767px) {
+  header .gnb {position: relative; display: none;}
+  header .gnb.active {width: 50vw; height: 100vh; display: block; background: rgb(255,255,255); position: absolute; right: 0; top: 0; }
+  header .gnb.active ul {display: block;  width: 100%;}
+  header .gnb.active ul li {padding: 20px 0;}
+  header .gnb.active ul li:first-child {margin-top: 64px;}
+  header .gnb.active ul li a {display: block;}
+  header button {position: absolute; right: 20px; top: 20px; border: none; background: none; font-size: 28px; opacity: .5; cursor: pointer;}
+}
+@media (min-width:768px) {
+  header button {display: none;}
+}
 
 
 /* home */
 #home {position: relative; height: calc(100vh - 100px);}
 #home .circle {position: absolute; width: 70%; height: 100%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.8); left: 50%; top: 50%; border-radius: 50%; transform: translate(-50%,-50%) skew(55deg);}
-#home img:nth-of-type(1) {
-  width: 200px;
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  animation: floating 2s ease-in-out infinite;
-}
-#home img:nth-of-type(2) {
-  width: 200px;
-  position: absolute;
-  right: 100px;
-  top: -150px;
-  animation: floating 2s ease-in-out infinite;
-}
-#home img:nth-of-type(3) {
-  width: 400px;
-  position: absolute;
-  left: 100px;
-  bottom: -150px;
-  animation: floating 2s ease-in-out infinite;
-  z-index: -6;
-}
-#home img:nth-of-type(4) {
-  width: 230px;
-  position: absolute;
-  right: 350px;
-  bottom: 100px;
-  animation: floating 2s ease-in-out infinite;
-  z-index: -6;
-}
-
+#home img:nth-of-type(1) {width: 200px; position: absolute; top: 100px; left: 100px; animation: floating 2s ease-in-out infinite;}
+#home img:nth-of-type(2) {width: 200px; position: absolute; right: 100px; top: -150px; animation: floating 2s ease-in-out infinite;}
+#home img:nth-of-type(3) {width: 400px; position: absolute; left: 100px; bottom: -150px; animation: floating 2s ease-in-out infinite; z-index: -6;}
+#home img:nth-of-type(4) {width: 230px; position: absolute; right: 350px; bottom: 100px; animation: floating 2s ease-in-out infinite; z-index: -6;}
 #aboutme #wrap .insert img {
   width: 350px;
   position: absolute;
@@ -93,7 +84,7 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 
 #home .text-container {
   width: 100%;
-  height: var(--height);
+  /* height: var(--height); */
   font-family: "Montserrat", serif; 
   font-weight: bold;
   color: rgba(255,255,255,.8); 
@@ -101,12 +92,14 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
   letter-spacing: 5px;
 }
 #home .dynamic-text, #home .static-text {display: inline-block;}
-#home .static-text{margin-right: 20px;}
-#home .dynamic-text{position: absolute; overflow: hidden; height: 100px;}
+#home .static-text {margin-right: 20px;}
+#home .dynamic-text {position: absolute; overflow: hidden; height: 100px;}
 #home .item {
   position: relative;
   top: 0;
   animation: move 8s infinite 1s;
+  vertical-align: text-top;
+  margin-bottom: 10px;
   &:first-child {
     color: #118cff;
   }
@@ -121,22 +114,30 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
     color: #24ddd4;
   }
 }
-
+/* #home .item:last-child {animation-delay: 8s;} */
 @keyframes move {
-  0% {
-    top: 0px; 
-  }
-  20% {
-    top: -90px;
-  }
-  40% {
-    top: -180px;
-  }
-  60% {
-    top: -270px;
-  }
-  100% {
-    top: 0px;
+  0% {top: 0px;}
+  20% {top: -100px;}
+  40% {top: -200px;}
+  60% {top: -300px;}
+  100% {top: 0px;}
+}
+
+@media (max-width:767px) {
+  #home img:nth-of-type(1) {width: 180px;}
+  #home img:nth-of-type(3) {width: 200px; left: 100px; bottom: -100px;}
+  #home img:nth-of-type(4) {width: 180px; right: 10px; bottom: 100px;}
+  #home .dynamic-text, #home .static-text {display: block;}
+  #home .static-text {font-size: 100px;}
+  #home .text-container {padding: 0 30px;}
+  #home .dynamic-text {height: 60px; font-size: 50px;}
+  #home .item {animation: move 8s infinite 1s;}
+  @keyframes move {
+    0% {top: 0px;}
+    20% {top: -60px;}
+    40% {top: -120px;}
+    60% {top: -180px;}
+    100% {top: 0px;}
   }
 }
 
@@ -146,7 +147,14 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 #aboutme #wrap .inner {padding: 20px; margin: 0 auto; box-sizing: border-box;}
 #aboutme .insert {position: relative; display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100vh; box-sizing: border-box;}
 #aboutme .insert h1 {font-size: 100px; font-weight: bold; margin-bottom: 50px; color: rgba(255, 255, 255,.9);}
-#aboutme .insert p {margin-bottom: 15px; font-size: 24px; color: rgba(255, 255, 255,.9); line-height: 1.5; text-shadow: 1px 1px 30px #aaa;}
+#aboutme .insert p {margin-bottom: 15px; font-size: 24px; color: rgba(255, 255, 255,.9); line-height: 1.5; text-shadow: 1px 1px 30px #6b6b6b;}
+@media (max-width:767px) {
+  #aboutme #wrap {padding: 0 30px;}
+  #aboutme .insert h1 {font-size: 60px;}
+  #aboutme .insert p {font-size: 20px;}
+  #aboutme #wrap .insert img {width: 200px; right: 0;}
+}
+
 #aboutme .flex {display: flex; flex-wrap: wrap; gap: 30px;}
 .back-to-position {opacity: 0; transition: 1s;}
 .back-to-position.to-right {transform: translateX(-150px);}
@@ -156,36 +164,43 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 .show .delay-1 {transition: 0.6s;}
 .show .delay-2 {transition: 0.6s;}
 .show .delay-3 {transition: 0.8s;}
-
 #aboutme .box {border-radius: 20px; background: rgba(255, 255, 255,.5);}
 #aboutme .title {border-radius: 20px 20px 0 0; font-size: 20px; font-weight: bold; margin-bottom: 20px;}
 #aboutme .box dl, .box p {font-size: 14px;}
-#aboutme a.scale {box-sizing: border-box; display: block; transition: .5s;}
+#aboutme a.scale {display: block; transition: .5s;}
 #aboutme a.scale:hover {transform: scale(1.02);}
 #aboutme dt {font-weight: bold; margin-bottom: 10px;}
 #aboutme #profile {width: 400px; height: 500px; overflow: hidden;}
-#aboutme #profile a {width: 100%; height: 100%;}
-#aboutme #profile .inner {padding: 0; overflow: hidden; position: relative;}
-#aboutme #profile .inner img {text-align: center; width: 100%; height: 100%;}
+#aboutme #profile .inner {width: 100%; height: 100%; background: url(../images/profile_edit.png) center/cover; padding: 0; overflow: hidden; position: relative; width: 100%; }
 #aboutme #profile .inner .text {display: flex; position: absolute; top: 0; left: 0; color: white; width: 100%; justify-content: center; align-items: center;}
-#aboutme #profile .inner .text h2 { font-weight: bold; font-size: 36px; color: white;}
+#aboutme #profile .inner .text h2 {font-weight: bold; font-size: 36px; color: white;}
 #aboutme #profile .inner .text dl {padding: 20px;}
 #aboutme .row {display: flex; flex-direction: column; gap: 30px;}
 #aboutme #skills, #contact {width: 570px; height: 235px;}
-#aboutme #skills .inner dl {display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-evenly;}
-#aboutme #skills a {width: 100%; height: 100%;}
+#aboutme #skills .inner {width: 100%; height: 195px;}
+#aboutme #skills .inner dl {display: flex; flex-wrap: wrap;}
+#aboutme #skills .inner dl dd {flex-basis: 20%; text-align: center; padding: 15px 0; filter: grayscale(100%); transition: .5s;}
+#aboutme #skills .inner dl dd:hover {filter: grayscale(0);}
 #aboutme #contact .inner_box {width: 100%; height: 195px; display: flex; gap: 30px;}
 #aboutme #contact .inner_box a {width: calc(100% / 3); height: 100%; position: relative;}
 #aboutme #contact .inner_box i {font-size: 40px; display: block;}
 #aboutme #contact .inner_box p {position: absolute; bottom: 20px; left: 20px; word-break: break-all;}
 #aboutme .col {width: calc(940px / 3);}
 #aboutme .col .title {margin-top: 20px;}
-#aboutme .col span {border-radius: 40px; background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); color: white; padding: 2px 10px;}
+#aboutme .col span {border-radius: 40px; background-color: #94b2d1; color: #fff; padding: 2px 10px;}
 #aboutme .col h3 {margin: 15px 0;}
 #aboutme #experience .box {margin-bottom: 20px;}
-#aboutme #experience p {color: #6e6e6e;}
 #aboutme #education .box {margin-bottom: 20px; height: 118px;}
+#aboutme #education h3 {line-height: 1.5; letter-spacing: -1px;}
 #aboutme #license .box {margin-bottom: 20px; height: calc(334px / 4)}
+@media (max-width:767px) {
+  #aboutme .flex {display: block;}
+  #aboutme #profile {margin: 0 auto; width: 100%; margin-bottom: 30px;}
+  #aboutme #skills, #contact {width: 100%;}
+  #aboutme #skills {margin-bottom: 20px;}
+  #aboutme .row {display: block;}
+  #aboutme .col {width: 100%;}
+}
 
 
 /* design */
@@ -193,12 +208,14 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 #design .swiper {width: 100%; margin-bottom: 30px;}
 #design .swiper-slide {text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center;}
 #design .swiper-slide img {display: block; width: 100%; height: 100%; object-fit: cover;}
-
+@media (max-width:767px) {
+  #design {padding: 0 30px;}
+}
 
 /* web */
 #web h1 {font-size: 36px; font-weight: bold; text-align: center; padding: 100px 0;}
-#web ul {width: 100%; display: flex; flex-wrap: wrap; gap: 50px;}
-#web ul li {position: relative; flex: 0 0 575px; height: 40vh; background-color: rgba(255,255,255,.8); border-radius: 30px; box-sizing: border-box; cursor: pointer; overflow: hidden;}
+#web ul {max-width: 100%; display: flex; flex-wrap: wrap; gap: 50px;}
+#web ul li {position: relative; flex: 0 0 575px; height: 40vh; background-color: rgba(255,255,255,.8); border-radius: 20px; box-sizing: border-box; cursor: pointer; overflow: hidden;}
 #web ul li:hover .thum {opacity: 0; transition: .5s;}
 #web ul li:hover .inner {opacity: 1; transition: .5s;}
 #web ul li .thum {height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
@@ -206,8 +223,14 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 #web ul li .inner .num {position: absolute; font-size: 28px; font-weight: bold; right: 50px; top: 50px;}
 #web ul li .inner h3 {font-size: 32px; font-weight: bold; margin-bottom: 15px;}
 #web ul li .inner p {margin-bottom: 40px;}
-#web ul li .inner button {width: 7rem; height: 3rem; border-radius: 10px; background-color: #333; color: #fff; cursor: pointer;}
-
+#web ul li .inner a {width: 7rem; height: 3rem; display: inline-block;}
+#web ul li .inner a button {width: 100%; height: 100%; border-radius: 10px; background-color: #333; color: #fff; cursor: pointer;}
+#web ul li .inner a:nth-of-type(1) {margin-right: 20px;}
+@media (max-width:767px) {
+  #web {padding: 0 30px;}
+  #web ul {display: block;}
+  #web ul li {margin-bottom: 30px;}
+}
 
 /* footer */
 footer {max-width: 100%; display: flex; justify-content: center; align-items: center; height: 100px;}
