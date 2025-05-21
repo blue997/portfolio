@@ -61,8 +61,8 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 
 /* home */
 #home {position: relative; height: calc(100vh - 100px);}
-#home .circle {position: absolute; width: 70%; height: 100%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.8); left: 50%; top: 50%; border-radius: 50%; transform: translate(-50%,-50%) skew(55deg);}
-#home img:nth-of-type(1) {width: 200px; position: absolute; top: 100px; left: 100px; animation: floating 2s ease-in-out infinite;}
+#home .circle {position: absolute; width: 70%; height: 100%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.8); left: 50%; top: 50%; border-radius: 50%; transform: translate(-50%,-50%) skew(55deg); z-index: -99;}
+#home img:nth-of-type(1) {width: 200px; position: absolute; top: 100px; left: 100px; animation: floating 2s ease-in-out infinite; z-index: 8;}
 #home img:nth-of-type(2) {width: 200px; position: absolute; right: 100px; top: -150px; animation: floating 2s ease-in-out infinite;}
 #home img:nth-of-type(3) {width: 400px; position: absolute; left: 100px; bottom: -150px; animation: floating 2s ease-in-out infinite; z-index: -6;}
 #home img:nth-of-type(4) {width: 230px; position: absolute; right: 350px; bottom: 100px; animation: floating 2s ease-in-out infinite; z-index: -6;}
@@ -224,6 +224,7 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
 #web ul li:nth-child(4) {background: url(../images/work4.png) center/cover;}
 #web ul li:nth-child(5) {background: url(../images/work5.png) center/cover;}
 #web ul li:nth-child(6) {background: url(../images/work6.png) center/cover;}
+#web ul li:nth-child(7) {background: url(../images/work7.png) center/cover;}
 /* #web ul li:hover {opacity: 0; transition: .5s;} */
 #web ul li:hover .inner {opacity: 1; transition: .5s; background-color: #fff;}
 #web ul li .inner {opacity: 0; height: 100%; position: relative; z-index: 9999; padding: 50px; box-sizing: border-box;}
@@ -237,6 +238,7 @@ header .gnb ul li a:hover {letter-spacing: 3px; color: rgba(0,0,0,.5);}
   #web {padding: 0 30px;}
   #web ul {display: block;}
   #web ul li {margin-bottom: 30px;}
+  #web ul li .inner a:nth-of-type(1) {margin-bottom: 20px;}
 }
 
 /* footer */
